@@ -1,0 +1,23 @@
+# Boilerplate stuff
+universe = vanilla
+initialdir = /home/tanazza.khanam/Distance_Estimate_Test/
+notification = never
+getenv = true
+should_transfer_files = YES
+use_x509userproxy = True
+accounting_group = ligo.prod.o2.burst.grb.plateaus_cocoa
+accounting_group_user = tanazza.khanam
+
+request_cpus = 1
+request_memory = 16 GB
+request_disk = 16 GB
+
+# check the state of your jobs with condor_q
+executable = /home/tanazza.khanam/Distance_Estimate_Test/Distance_horizon_estimate.sh
+transfer_input_files = /home/tanazza.khanam/Distance_Estimate_Test/Distance_horizon_estimate.ini
+arguments = /home/tanazza.khanam/Distance_Estimate_Test/Distance_horizon_estimate.ini $(Item)
+output = /home/tanazza.khanam/Distance_Estimate_Test/output_512_ce2/Distance_horizon_estimate.out_$(Item)
+error = /home/tanazza.khanam/Distance_Estimate_Test/error_512_ce2/Distance_horizon_estimate.err_$(Item)
+log = /home/tanazza.khanam/Distance_Estimate_Test/log_512_ce2/Distance_horizon_estimate.log_$(Item)
+
+queue from seq 0 16466| 
